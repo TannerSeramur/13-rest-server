@@ -9,8 +9,9 @@ const router = express.Router();
 
 // ROUTES
 router.get('/api/v1/products', getProducts);
+// PUT http POST :3000/api/v1/products
 router.post('/api/v1/products', postProducts);
-
+// http GET :3000/api/v1/products/5c36a2f9a1b22d99bc6c83e5
 router.get('/api/v1/products/:id', getProduct);
 router.put('/api/v1/products/:id', putProducts);
 router.delete('/api/v1/products/:id', deleteProducts);

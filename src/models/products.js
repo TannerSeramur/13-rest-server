@@ -1,29 +1,30 @@
 'use strict';
 
-const uuid = require('uuid/v4');
-
-const schema = {
-};
+const schema = require('./products.schema');
 
 class Products {
 
-  constructor() {
-    this.database = [];
-  }
+  constructor() {}
 
-  get(id) {
+  get(_id) {
+    let queryObject = _id ? {_id} : {};
+    return schema.find(queryObject); 
   }
   
-  post(entry) {
+  post(record) {
+    let newRecord = new schema(record); 
+    return newRecord.save();
   }
 
-  put(id, entry) {
+  put(_id, record) {
+    schema.update({_id}, {$set:{record}});
+    
+    return schema.find({_id});
   }
 
-  delete(id) {
-  }
-
-  sanitize(entry) {
+  delete(_id) {
+    let id = schema.find(_id);
+    sechema.deleteOne(id);
   }
 
 }

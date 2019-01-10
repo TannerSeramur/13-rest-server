@@ -7,11 +7,14 @@ const categories = new Categories();
 
 const router = express.Router();
 
+
 // ROUTES
+
 router.get('/api/v1/categories', getCategories);
+// echo '{"name":"newname"}' | http post :3000/api/v1/categories
 router.post('/api/v1/categories', postCategories);
 
-router.get('/api/v1/categories/:id', getCategory);
+router.get('/api/v1/categories/:id', getCategories);
 router.put('/api/v1/categories/:id', putCategories);
 router.delete('/api/v1/categories/:id', deleteCategories);
 
